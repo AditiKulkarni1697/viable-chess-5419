@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body {
+        width: 100vw;
+        margin: 0px;
+      }
+      .offer {
+        border: 0;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        height: 60px;
+      }
+      /* .red_fullsize_image {
+        height: 70%;
+      }
+
+      .red_fullsize_image > img {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+      } */
+      .red_background_img {
+        height: 200px;
+        background: url(https://www.bing.com/images/blob?bcid=S5-.BV0HkwEF6g)
+          center no-repeat;
+        background-size: 90% 200px;
+      }
+      .container1 {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .santa_dash {
+        height: 150px;
+        background: url(https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/ttBg.jpg)
+          center no-repeat;
+        background-size: 90% 150px;
+      }
+      .heading_gift_ideas {
+        height: 80px;
+        background: url(https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/tbg.png)
+          center no-repeat;
+        background-size: 25% 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="/offers.html" target="_blank"></a> -->
+        <img
+          src="https://img.gkbcdn.com/s3/bn/2212/2880x60-639702ca2b40c94010613efe.jpg"
+          alt="offers"
+          class="offer"
+        />
+      </div>
+
+      <div>
+        <!-- header starts -->
+        <!-- header ends -->
+      </div>
+    </header>
+    <main>
+      <div class="red_fullsize_image">
+        <img
+          src="https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/share.jpg"
+          alt="red_fullsize_image"
+          height="500px"
+          width="100%"
+        />
+      </div>
+      <div class="red_background_img">
+        <strong>5</strong>
+        <p>wert</p>
+        <p>wert</p>
+      </div>
+      <p class="left_text">
+        *Selected items excluded, subject to checkout page usage.
+      </p>
+      <div class="container1">
+        <div>
+          <img
+            src="https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/n0.png"
+            alt="gift ideas"
+          />
+          <h2>Gift Ideas</h2>
+        </div>
+        <div>
+          <img
+            src="https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/n1.png"
+            alt="stocking suffers"
+          />
+          <h2>Stocking Suffers</h2>
+        </div>
+        <div>
+          <img
+            src="https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/n2.png"
+            alt="Ship IN 24Hrs"
+          />
+          <h2>Ship In 24Hrs</h2>
+        </div>
+        <div>
+          <img
+            src="https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/n3.png"
+            alt="White Elephant"
+          />
+          <h2>"White Elephant</h2>
+        </div>
+        <div>
+          <img
+            src="https://content1.geekbuying.com/V1.4/en/promotion/20221209/image/n4.png"
+            alt="holiday decor"
+          />
+          <h2>Holiday Decor</h2>
+        </div>
+      </div>
+      <div class="santa_dash">
+        <h2>Santa Dash!</h2>
+        <h3>Shop our gift deals quickly /*\n /*before they go-ho-ho!</h3>
+      </div>
+      <div class="heading_gift_ideas">
+        <h3>Top Gift Ideas</h3>
+      </div>
+      <div id="gift_ideas_products"></div>
+      <div></div>
+    </main>
+    <footer></footer>
+    <script>
+      let gift_ideas_products = document.getElementById("gift_ideas_products");
+    </script>
+  </body>
+</html>
