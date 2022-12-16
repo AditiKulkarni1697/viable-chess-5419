@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #cart_div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      #cart_div img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cart_div"></div>
+  </body>
+  <script>
+    let container = document.getElementById("cart_div");
+    let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    let buyData = JSON.parse(localStorage.getItem("buy")) || [];
+    displayCart(cartData);
+    function displayCart(data) {
+      container.innerHTML = null;
+      //total = favouriteData.length;
+      console.log("Hello");
+      data.forEach((element, index) => {
+        let card = document.createElement("div");
+
+        let offer = document.createElement("p");
+        offer.innerText = element.offer;
+
+        let image = document.createElement("img");
+        image.setAttribute("src", element.image);
+
+        let title = document.createElement("p");
+        title.innerText = element.title;
+
+        let price = document.createElement("p");
+        price.innerText = element.price;
+
+        let priceoverwritten = document.createElement("p");
+        priceoverwritten.innerText = element.priceoverwritten;
+
+        let save = document.createElement("p");
+        save.innerText = element.save;
+
+        let buy = document.createElement("button");
+        buy.innerText = "Buy";
+
+        buy.addEventListener("click", function () {
+          let buyData = JSON.parse(localStorage.getItem("buy")) || [];
+
+          buyData.push(element);
+          //++total
+          localStorage.setItem("buy", JSON.stringify(buyData));
+          // alerted.innerText = "Restaurant Added To Favourites";
+        });
+        container.append(card);
+        //stocking_stuffer_products.append(card);
+        card.append(offer, image, title, price, priceoverwritten, save, buy);
+      });
+    }
+  </script>
+</html>
