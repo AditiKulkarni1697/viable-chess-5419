@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #gift_ideas_products {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px 5px;
+      }
+      #gift_ideas_products img {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="gift_ideas_products"></div>
+  </body>
+  <script>
+    let gift_ideas_products = document.getElementById("gift_ideas_products");
+    let fetchedData = [];
+    fetch(
+      `https://639bfbc642e3ad692723cf3d.mockapi.io/products1?page=1&limit=10`
+    )
+      .then((responseObject) => {
+        return responseObject.json();
+      })
+      .then((actualData) => {
+        fetchedData = actualData;
+
+        giftIdeasProducts(actualData);
+      });
+
+    function giftIdeasProducts(data) {
+      gift_ideas_products.innerHTML = null;
+      ///text case
+      //stocking_stuffer_products.innerHTML = null;
+      data.forEach((element) => {
+        let card = document.createElement("div");
+
+        let offer = document.createElement("p");
+        offer.innerText = element.offer;
+
+        let image = document.createElement("img");
+        image.setAttribute("src", element.image);
+
+        let title = document.createElement("p");
+        title.innerText = element.title;
+
+        let price = document.createElement("p");
+        price.innerText = element.price;
+
+        let priceoverwritten = document.createElement("p");
+        priceoverwritten.innerText = element.priceoverwritten;
+
+        let save = document.createElement("p");
+        save.innerText = element.save;
+
+        let cart = document.createElement("button");
+        cart.innerText = "Cart";
+
+        cart.addEventListener("click", function () {
+          let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+          totalValue = JSON.parse(localStorage.getItem("total")) || 0; //testCase
+          let isAlreadyInCart = false;
+          for (i = 0; i < cartData.length; i++) {
+            if (cartData[i].id === element.id) {
+              isAlreadyInCart = true;
+              break;
+            }
+          }
+          if (isAlreadyInCart === true) {
+            alert("Product Already in Cart");
+          } else {
+            cartData.push({ ...element, quantity: 1 });
+            localStorage.setItem("cart", JSON.stringify(cartData));
+            alert("Product Added To Cart");
+            let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            let priceValue = 0;
+            for (i = 0; i < element.price.length; i++) {
+              //console.log(element.price[i]);
+              for (j = 0; j < numbers.length; j++) {
+                if (element.price[i] == numbers[j]) {
+                  priceValue += element.price[i];
+                }
+              }
+            }
+            totalValue += +priceValue; //price is $24, which is not a number
+            localStorage.setItem("total", JSON.stringify(totalValue));
+          }
+          // let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+          // cartData.push(element);
+          // console.log(cartData.id);
+          // localStorage.setItem("cart", JSON.stringify(cartData));
+        });
+
+        //stocking_stuffer_products.append(card);
+        card.append(offer, image, title, price, priceoverwritten, save, cart);
+        gift_ideas_products.append(card);
+      });
+    }
+  </script>
+</html>

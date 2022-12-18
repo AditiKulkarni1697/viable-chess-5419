@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="buy">
+      <h3>Your Order total <span id="totalSum">0</span></h3>
+      <input type="text" placeholder="Nick Name" id="name" />
+      <input type="text" placeholder="Address" id="address" />
+      <select name="Payemnt Mode" id="">
+        <option value="">Cash On Delivery</option>
+      </select>
+
+      <button id="place_order">Place Order</button>
+    </div>
+  </body>
+  <script>
+    let totalSum = document.getElementById("totalSum");
+    let totalValue = JSON.parse(localStorage.getItem("total")) || 0;
+    totalSum.innerText = totalValue;
+    let placeOrder = document.getElementById("place_order");
+    placeOrder.addEventListener("click", function () {
+      alert("Order Placed");
+    });
+  </script>
+</html>
