@@ -14,8 +14,9 @@
         display: grid;
         grid-template-rows: 2fr 1fr;
         position: fixed;
-        margin-top: -23px;
+        /* margin-top: -23px; */
         margin-left: -10px;
+        top: 0;
       }
       .header button {
         border: none;
@@ -87,11 +88,15 @@
       #cart_div img {
         width: 100%;
       } */
+      /* #containeR {
+        margin-top: 200px;
+      } */
       #cart_div {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 5px 5px;
         padding: 10px;
+        margin-top: 100px;
       }
       #cart_div > div {
         margin: 10px;
@@ -199,12 +204,14 @@
       </div>
     </header>
     <main>
-      <h1 id="total">
-        Your Total cart Price is:- <span id="cart-total">0</span>
-      </h1>
-      <div id="cart_div"></div>
-      <div class="buyBtn">
-        <button><a href="buy.html">Buy</a></button>
+      <div id="containeR">
+        <div id="cart_div"></div>
+        <div class="buyBtn">
+          <h1 id="total">
+            Your Total cart Price is:- $<span id="cart-total">0</span>
+          </h1>
+          <button><a href="buy.html">Buy</a></button>
+        </div>
       </div>
     </main>
     <footer></footer>
