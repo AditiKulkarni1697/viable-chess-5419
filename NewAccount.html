@@ -187,9 +187,11 @@
     let button = document.getElementById("createAccount");
     button.addEventListener("click", function () {
       //console.log(account);
+      alert("Account Created");
       let name = document.getElementById("name").value;
       let email = document.getElementById("email").value;
       let password = document.getElementById("password").value;
+
       let user = {
         name,
         email,
