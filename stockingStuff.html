@@ -22,8 +22,14 @@
         display: grid;
         grid-template-rows: 2fr 1fr;
         position: fixed;
-        margin-top: -10px;
+        /* margin-top: -10px; */
         margin-left: -10px;
+        top: 0;
+      }
+      .heading {
+        margin-top: 120px;
+        text-align: center;
+        color: red;
       }
       .header button {
         border: none;
@@ -105,7 +111,7 @@
         /* margin: 10px; */
         padding: 12px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        margin-top: 100px;
+        margin-top: 50px;
       }
       #stocking_stuffer_products > div > p:nth-child(1) {
         display: inline;
@@ -196,6 +202,9 @@
       </div>
     </header>
     <main>
+      <div class="heading">
+        <h1>Stocking Stuffer</h1>
+      </div>
       <div id="stocking_stuffer_products"></div>
     </main>
   </body>
